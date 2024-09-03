@@ -8,7 +8,7 @@ library(sf)
 
 
 # Function to process data and generate plot and CSV
-process_data <- function(file_path, plot_file, csv_file) {
+process_data <- function(file_path, plot_file) {
     
   # Read data from CSV file
   data <- read.csv(file_path)
@@ -43,18 +43,18 @@ process_data <- function(file_path, plot_file, csv_file) {
   # Save plot
   ggsave(plot_file, plot, width = 7, height = 7, dpi = 200)
   
-  # Save merged data to CSV
-  write.csv(merged_data, csv_file, row.names = FALSE)
-  
   # Return the plot and CSV filenames
-  return(list(plot_file = plot_file, csv_file = csv_file))
+  return(list(plot_file = plot_file))
 }
 
-process_data("average_species_associations_ab.csv",
-             "average_association_per_site_ab.jpeg", 
-             "average_association_per_site_ab.csv")
+process_data("average_species_associations_by_site_ab.csv",
+             "average_association_per_site_ab.jpeg")
 
+process_data("average_species_associations_by_site_ab_w.csv",
+             "average_association_per_site_ab_w.jpeg")
 
-process_data("average_species_associations_count.csv",
-             "average_association_per_site_count.jpeg", 
-             "average_association_per_site_count.csv")
+process_data("average_species_associations_by_site_count.csv",
+             "average_association_per_site_count.jpeg")
+
+process_data("average_species_associations_by_site_count_w.csv",
+             "average_association_per_site_count_w.jpeg")

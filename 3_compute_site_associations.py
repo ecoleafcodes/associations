@@ -17,7 +17,7 @@ def compute_site_average_association(association_data, sp_sites_data):
     # Iterate over the columns (excluding the first column which is 'Species')
     for column in sp_sites_data.columns[1:]:
         # Filter species with value > 0
-        filtered_species = sp_sites_data[sp_sites_data[column] > 0]['Species']
+        filtered_species = sp_sites_data[sp_sites_data[column] > 0]['species']
         
         # Generate all combinations of species pairs
         species_pairs = itertools.combinations(filtered_species, 2)
@@ -58,7 +58,7 @@ def compute_site_weighted_average_association(association_data, sp_sites_data):
     # Iterate over the columns (excluding the first column which is 'Species')
     for column in sp_sites_data.columns[1:]:
         # Filter species with value > 0
-        filtered_species = sp_sites_data[sp_sites_data[column] > 0]['Species']
+        filtered_species = sp_sites_data[sp_sites_data[column] > 0]['species']
         
         # Generate all combinations of species pairs
         species_pairs = itertools.combinations(filtered_species, 2)
@@ -69,7 +69,7 @@ def compute_site_weighted_average_association(association_data, sp_sites_data):
         for species_a, species_b in species_pairs:
             assoc = association_dict.get((species_a, species_b), np.nan)
             if not np.isnan(assoc):
-                sum_species_values = sp_sites_data.loc[sp_sites_data['Species'].isin([species_a, species_b]), column].sum()
+                sum_species_values = sp_sites_data.loc[sp_sites_data['species'].isin([species_a, species_b]), column].sum()
                 associations.append(assoc)
                 weights.append(sum_species_values)
         

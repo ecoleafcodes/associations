@@ -84,14 +84,13 @@ def compute_associations(csv_path):
 
 # Path to the CSV file
 associations_ab = compute_associations("aggregated_ab_m2_relative.csv")
-
 associations_count = compute_associations("aggregated_species_count_relative.csv")
 
 associations_ab.sort_values(by='association', ascending=False, inplace=True)
 associations_count.sort_values(by='association', ascending=False, inplace=True)
 
 # Save the results to CSV files
-associations_ab.to_csv('species_associations_ab.csv', index=False)
+associations_ab.to_csv('species_associations_ba.csv', index=False)
 associations_count.to_csv('species_associations_count.csv', index=False)
 
 

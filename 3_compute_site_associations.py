@@ -90,7 +90,7 @@ def compute_site_weighted_average_association(association_data, sp_sites_data):
 
 
 # Read the CSV files
-file_path_associations = "species_associations_ab.csv"
+file_path_associations = "species_associations_ba.csv"
 association_data = pd.read_csv(file_path_associations)
 
 file_path_sp_sites = "aggregated_ab_m2_relative.csv"
